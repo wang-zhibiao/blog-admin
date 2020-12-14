@@ -11,6 +11,17 @@ Router.prototype.push = function push(location) {
 import Layout from '@/layout'
 export const constantRoutes = [
   {
+    path: '/redirect',
+    component: Layout,
+    hidden: true,
+    children: [
+      {
+        path: '/redirect/:path(.*)',
+        component: () => import('@/views/redirect/index.vue')
+      }
+    ]
+  },
+  {
     path: '/',
     component: Layout,
     redirect: '/dashboard',
@@ -18,7 +29,7 @@ export const constantRoutes = [
       path: 'dashboard',
       name: 'Dashboard',
       component: () => import('@/views/dashboard/index'),
-      meta: { title: 'home', icon: 'dashboard' }
+      meta: { title: 'home', icon: 'dashboard', affix: true }
     }]
   },
   {
@@ -52,6 +63,7 @@ export const asyncRoutes = [
       },
       {
         path: 'menu2',
+        name: 'menu2',
         component: () => import('@/views/menu2'),
         meta: { title: 'menu2', icon: 'wechat' }
       }

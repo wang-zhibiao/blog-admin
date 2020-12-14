@@ -16,9 +16,13 @@
 
         <!-- <screenfull id="screenfull" class="right-menu-item hover-effect" /> -->
 
-        <!-- <el-tooltip :content="$t('navbar.size')" effect="dark" placement="bottom">
+        <el-tooltip
+          :content="$t('navbar.size')"
+          effect="dark"
+          placement="bottom"
+        >
           <size-select id="size-select" class="right-menu-item hover-effect" />
-        </el-tooltip> -->
+        </el-tooltip>
 
         <!-- <lang-select class="right-menu-item hover-effect" /> -->
       </template>
@@ -54,11 +58,12 @@
 import { mapGetters } from "vuex";
 import Breadcrumb from "@/components/Breadcrumb";
 import Hamburger from "@/components/Hamburger";
-
+import SizeSelect from "@/components/SizeSelect";
 export default {
   components: {
     Breadcrumb,
     Hamburger,
+    SizeSelect,
   },
   computed: {
     ...mapGetters(["sidebar", "avatar", "device"]),

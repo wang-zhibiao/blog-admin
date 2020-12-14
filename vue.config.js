@@ -14,7 +14,7 @@ module.exports = {
   publicPath: process.env.NODE_ENV === "production" ? "./" : "/",
   outputDir: 'dist',
   // 关闭ESLint，如果你需要使用ESLint，把lintOnSave设为true即可
-  lintOnSave: process.env.NODE_ENV === 'development',
+  lintOnSave: false,
   productionSourceMap: false,
   css: {
     // 是否使用css分离插件 ExtractTextPlugin 生产环境下是true,开发环境下是false
@@ -33,6 +33,7 @@ module.exports = {
       warnings: false,
       errors: true
     },
+    before: require('./mock/mock-server.js')
   },
   configureWebpack: {
     name,
